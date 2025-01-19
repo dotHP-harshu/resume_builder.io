@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<!-- Created by Harsh Prajapati -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder | Harsh Prajapati</title>
+    <link rel="stylesheet" href="css/resume.css">
+    <link rel="shortcut icon" href="assets/icons/favicon.svg" type="x-image/icon">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/preloader.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Jersey+25&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <!-- fonts -->
+</head>
+
+<body>
+    <div id="pre_loader">
+        <div class="scene">
+            <div class="cube-wrapper">
+                <div class="cube">
+                    <div class="cube-faces">
+                        <div class="cube-face shadow"></div>
+                        <div class="cube-face bottom"></div>
+                        <div class="cube-face top"></div>
+                        <div class="cube-face left"></div>
+                        <div class="cube-face right"></div>
+                        <div class="cube-face back"></div>
+                        <div class="cube-face front"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header>
+        <div class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" class="logo-icon" width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m18 16 4-4-4-4" />
+                <path d="m6 8-4 4 4 4" />
+                <path d="m14.5 4-5 16" />
+            </svg>
+            <span class="logo-text">DotHP</span>
+        </div>
+    </header>
+    <div id="input_wrapper">
+        <form id="input_section_container">
+            <!-- profile_input_section -->
+            <div id="profile_input_section" class="active_section input_section">
+                <h3 class="section_heading">profile</h3>
+                <label for="input_image" class="input_label">Your profile image *</label>
+                <input required type="file" id="input_image" class="input_box" accept="image/"><br>
+
+                <label class="input_label" for="name">Your good name *</label>
+                <input required type="text" class="input_box" id="input_name" placeholder="Harsh Prajapati"><br>
+
+                <label for="input_role" class="input_label">Your role *</label>
+                <input required type="text" class="input_box" id="input_role" placeholder="'web developer'">
+                <p class="eg_text">Your role. eg. 'web developer', 'ui designer'</p><br>
+            </div>
+            <!-- profile_input_section -->
+            <!-- -- personal_input_section --  -->
+            <div id="personal_input_section" class="input_section">
+                <h3 class="section_heading">personal information</h3>
+
+                <label for="input_contact" class="input_label">Your contact * </label>
+                <input required type="number" class="input_box" id="input_contact" placeholder=" +91 2536869625">
+                <p class="eg_text">Your contact number. eg. ' +91 2536869625' etc.</p>
+
+                <label for="input_email" class="input_label">Your email *</label>
+                <input required type="email" class="input_box" id="input_email" placeholder="example@gmail.com"><br>
+
+                <label for="input_url" class="input_label">Your website url (if available) </label>
+                <input type="text" class="input_box" id="input_url" placeholder="https://example.com"><br>
+
+                <label for="input_address" class="input_label">Your full address with pincode* </label>
+                <input required type="text" class="input_box" id="input_address"><br>
+                <p class="eg_text">Your address with distric, state and pincode.</p>
+
+            </div>
+            <!-- -- personal_input_section --  -->
+            <!-- skill_input_section -->
+            <div id="skill_input_section" class=" input_section">
+                <h3 class="section_heading">Skills</h3>
+                <p class="section_para">Add atlaest 4-5 skills.</p>
+
+                <label for="input_skill" class="input_label">Add your skills</label>
+                <input type="text" class="input_box" id="input_skill" placeholder="Java Script"><br>
+
+                <button id="add_skill_btn" class="form_btn">Add</button>
+
+                <p class="eg_text">To remove click on exiting skill.</p>
+                <ul id="inputted_skills">
+                </ul>
+
+            </div>
+            <!-- skill_input_section -->
+            <!-- education_input_section -->
+            <div id="Education_input_section" class="  input_section">
+                <h3 class="section_heading">Education</h3>
+                <p class="section_para">Add your education criteria including your schooling.</p>
+
+                <latbel for="input_course" class="input_label">Your course</latbel>
+                <input type="text" class="input_box" id="input_course" placeholder="high school"><br>
+
+                <latbel for="input_college" class="input_label">Your college</latbel>
+                <input type="text" class="input_box" id="input_college" placeholder="example college"><br>
+
+                <latbel for="input_year" class="input_label">Course completing year</latbel>
+                <input type="number" class="input_box" id="input_year" placeholder="2002"><br>
+
+                <button id="add_education_btn" class="form_btn">Add</button>
+
+                <p class="eg_text">To remove click on exiting education.</p>
+                <ul id="inputted_education">
+                </ul>
+            </div>
+
+            <!-- education_input_section -->
+            <div id="project_input_section" class=" input_section">
+                <h3 class="section_heading">Projects</h3>
+                <p class="section_para">Add your projects with their links. (if available)</p>
+
+                <latbel for="input_project_name" class="input_label">Your project name</latbel>
+                <input type="text" class="input_box" id="input_project_name" placeholder="project 1"><br>
+
+                <latbel for="input_project_url" class="input_label">Your project url</latbel>
+                <input type="text" class="input_box" id="input_project_url" placeholder="https://project1.com"><br>
+
+                <button id="add_projects_btn" class="form_btn">Add</button>
+
+                <p class="eg_text">To remove click on exiting project.</p>
+                <ul id="inputted_projects">
+                </ul>
+
+            </div>
+            <!-- education_input_section -->
+            <!-- description_input_section -->
+            <div id="description_input_section" class="input_section">
+                <h3 class="section_heading">description</h3>
+                <label for="input_description" class="input_label"> Describe yourself *</label>
+                <textarea required name="description" id="input_description"></textarea><br>
+            </div>
+            <!-- description_input_section -->
+        </form>
+        <button id="next_btn" class="main_btn">Next</button>
+        <button id="prev_btn" class="main_btn">previous</button>
+        <button id="submit_btn" class="main_btn">submit</button>
+    </div>
+    <!-- ----------------------------------------------------------------------------- -->
+    <div id="resume_wrapper">
+        <button id="download_btn" class="main_btn">download</button>
+        <button class="main_btn" id="edit_btn">edit</button>
+        <button class="main_btn" id="new_btn">new</button>
+        <p id="edit_confirmation" class="eg_text">Now you can directly edit the text of resume and download by download
+            button.</p>
+        <div id="resume">
+            <!-- -- left section -- -->
+            <div id="left">
+                <!-- profile_section -->
+                <div id="profile_section" class="section">
+                    <div id="profile_image">
+                        <img src="assets/icons/contact.svg" alt="Profile image">
+                    </div>
+                    <div id="profile_content">
+                        <h2 id="name"></h2>
+                        <p id="label"></p>
+                    </div>
+                </div>
+                <!-- profile_section -->
+                <!-- -- personal_section --  -->
+                <div id="personal_section" class="section">
+                    <h3 class="section_heading">personal information</h3>
+                    <ul>
+                        <li class="section_item">
+                            <img src="assets/icons/contact.svg" alt="contact" class="icon">
+                            <p id="contact"></p>
+                        </li>
+                        <li class="section_item">
+                            <img src="assets/icons/email.svg" alt="email" class="icon">
+                            <p id="email"></p>
+                        </li>
+                        <li class="section_item link">
+                            <img src="assets/icons/url.svg" alt="url" class="icon">
+                            <p id="url"></p>
+                        </li>
+                        <li class="section_item">
+                            <img src="assets/icons/home.svg" alt="home" class="icon">
+                            <p id="address"></p>
+                        </li>
+                    </ul>
+                </div>
+                <!-- -- personal_section --  -->
+
+            </div>
+            <!-- -- left section -- -->
+            <!-- -- right section -- -->
+            <div id="right">
+                <!-- skill_section -->
+                <div id="skill_section" class="section">
+                    <h3 class="section_heading">Skills</h3>
+                    <ul>
+                        <!-- Skill list will be here. -->
+                    </ul>
+                </div>
+                <!-- skill_section -->
+                <!-- education_section -->
+                <div id="education_section" class="section">
+                    <h3 class="section_heading">Education</h3>
+                    <ul>
+                        <!-- Education list will be here. -->
+                    </ul>
+                </div>
+                <!-- education_section -->
+                <div id="project_section" class="section">
+                    <h3 class="section_heading">Projects</h3>
+                    <ul>
+                        <!-- Project list will be here. -->
+                    </ul>
+                </div>
+                <!-- project_section -->
+                <!-- description_section -->
+                <div id="description">
+                    <h3 class="section_heading">description</h3>
+                    <p id="description_text" class="section_item">
+                        <!-- Description will be here. -->
+                    </p>
+                </div>
+                <!-- description_section -->
+
+            </div>
+            <!-- -- right section -- -->
+            <div id="resume_footer">
+                <svg id="visual" viewBox="0 0 900 600" width="900" height="600" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+                    <rect x="0" y="0" fill="#ffffff00"></rect>
+                    <path
+                        d="M0 496L21.5 485.3C43 474.7 86 453.3 128.8 455.7C171.7 458 214.3 484 257.2 483C300 482 343 454 385.8 438C428.7 422 471.3 418 514.2 425.3C557 432.7 600 451.3 642.8 450.5C685.7 449.7 728.3 429.3 771.2 427.8C814 426.3 857 443.7 878.5 452.3L900 461L900 601L878.5 601C857 601 814 601 771.2 601C728.3 601 685.7 601 642.8 601C600 601 557 601 514.2 601C471.3 601 428.7 601 385.8 601C343 601 300 601 257.2 601C214.3 601 171.7 601 128.8 601C86 601 43 601 21.5 601L0 601Z"
+                        fill="#0089B23b" stroke-linecap="round" stroke-linejoin="miter"></path>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="visual"
+                    viewBox="0 0 900 600" width="900" height="600" version="1.1">
+                    <rect x="0" y="0" width="900" height="600" fill="#ffffff00" />
+                    <path
+                        d="M0 467L21.5 476C43 485 86 503 128.8 497.8C171.7 492.7 214.3 464.3 257.2 439.8C300 415.3 343 394.7 385.8 406.2C428.7 417.7 471.3 461.3 514.2 477.3C557 493.3 600 481.7 642.8 481C685.7 480.3 728.3 490.7 771.2 495C814 499.3 857 497.7 878.5 496.8L900 496L900 601L878.5 601C857 601 814 601 771.2 601C728.3 601 685.7 601 642.8 601C600 601 557 601 514.2 601C471.3 601 428.7 601 385.8 601C343 601 300 601 257.2 601C214.3 601 171.7 601 128.8 601C86 601 43 601 21.5 601L0 601Z"
+                        fill="#0089B23a" stroke-linecap="round" stroke-linejoin="miter" />
+                </svg>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+
+        document.getElementById("download_btn").addEventListener("click", () => {
+            window.print();
+        });
+    </script>
+
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>

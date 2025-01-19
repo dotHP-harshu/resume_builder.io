@@ -1,0 +1,148 @@
+:root {
+    --primary-color: #333333;
+    --secondary-color: #155a6f;
+    --resume-bg-color: #F8F9FA;
+    --primary-form-color: #2E4057;
+    --secondary-form-color: #F8F8F8;
+    --accent-form-color: #bd742a;
+    --form-bg-color: #c8c8c8;
+    --error-color: #C72C41;
+}
+
+@font-face {
+    font-family: lato;
+    src: url(../assets/fonts/Lato-Black.woff);
+}
+
+
+@font-face {
+    font-family: inconsolata;
+    src: url(../assets/fonts/Inconsolata_UltraExpanded-Black.woff);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: jersey 25;
+    src: url(../assets/fonts/Jersey25-Regular.woff);
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    background-color: var(--primary-color);
+}
+
+#pre_loader {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: var(--resume-bg-color);
+
+}
+
+header {
+    background-color: rgba(255, 255, 255, 0.895);
+    padding: 1em 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.logo svg {
+    color: var(--accent-form-color);
+}
+
+.logo-text {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 1.5rem;
+    color: var(--primary-form-color);
+}
+
+@media (max-width:425px) {
+    .input_section {
+        width: auto !important;
+        height: auto;
+    }
+
+    .input_box {
+        min-width: auto !important;
+        width: 100%;
+    }
+
+
+}
+
+@media (max-width:619px) {
+
+    #next_btn,
+    #submit_btn {
+        left: 50%;
+        transform: translateX(-50%);
+
+    }
+
+    #prev_btn {
+        left: 50%;
+        top: calc(100% + 50px);
+        transform: translateX(-50%);
+    }
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #resume,
+    #resume * {
+        visibility: visible;
+    }
+
+    #resume {
+        position: absolute;
+        top: 0;
+        left: 0;
+        max-width: 210mm;
+        max-height: 297mm;
+        width: 210mm;
+        height: 297mm;
+    }
+
+    #profile_section {
+        background: linear-gradient(#e3f8ff, var(--secondary-color));
+        width: 100%;
+        border-radius: 10px;
+        padding: 4em 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 6em;
+        color: white;
+        margin-bottom: 3em;
+    }
+
+}

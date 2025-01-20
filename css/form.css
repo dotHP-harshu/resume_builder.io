@@ -12,11 +12,20 @@
     align-items: center;
 }
 
+#design_container {
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
 .input_section {
     width: 400px;
     background-color: var(--resume-bg-color);
     padding: 2em;
-    display: none;
+    display: none !important;
     box-shadow: 0 0 5px rgb(216, 216, 216);
 }
 
@@ -31,6 +40,8 @@
     font-size: 1rem;
 
 }
+
+
 
 .input_box {
     min-width: 250px;
@@ -94,6 +105,25 @@
     color: gray;
 }
 
+#inputted_image_container {
+    display: none;
+    width: 100%;
+    overflow: hidden;
+}
+
+#inputted_image {
+    display: block;
+    height: auto;
+    max-height: 300px;
+    min-height: 300px;
+    width: 100%;
+}
+
+#inputted_image img {
+    max-width: 100%;
+    display: block;
+}
+
 #inputted_skills,
 #inputted_education,
 #inputted_projects {
@@ -130,7 +160,7 @@
 }
 
 .active_section {
-    display: inline-block;
+    display: inline-block !important;
 }
 
 .input_error {
@@ -145,7 +175,8 @@
 
 #download_btn,
 #edit_btn,
-#new_btn {
+#new_btn,
+#crop_btn {
     position: static;
     margin-right: 1em;
 }
@@ -165,4 +196,18 @@
     color: gray;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
+}
+
+
+
+.designs {
+    width: 100%;
+    margin-bottom: 2em;
+    border: 1px solid var(--primary-color);
+    cursor: pointer;
+}
+
+.selected_design {
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 0 6px var(--primary-color);
 }

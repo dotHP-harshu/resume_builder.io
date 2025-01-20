@@ -1,3 +1,4 @@
+const designs = document.querySelectorAll(".designs");
 const input_sections = document.querySelectorAll('.input_section');
 const input_wrapper = document.getElementById('input_wrapper');
 const resume_wrapper = document.getElementById('resume_wrapper');
@@ -13,6 +14,8 @@ const add_education_btn = document.getElementById('add_education_btn');
 const add_project_btn = document.getElementById('add_projects_btn');
 const input_image = document.getElementById("input_image");
 let current_input_section = 0;
+let cropper;
+
 
 // function for preloader
 window.onload = () => {
@@ -38,6 +41,7 @@ const check_validity = () => {
 // function to make skills in resume
 const make_skills = (skills) => {
     const resume_skill_container = document.querySelector('#skill_section ul');
+    resume_skill_container.innerHTML = ''
 
     skills.forEach((skill) => {
         let resume_skill = document.createElement('li');
@@ -53,6 +57,7 @@ const make_skills = (skills) => {
 // function to make projects in resume
 const make_projects = (projects) => {
     const resume_project_container = document.querySelector('#project_section ul');
+    resume_project_container.innerHTML = ''
 
     projects.forEach((project) => {
         let resume_project = document.createElement('li');
@@ -72,6 +77,7 @@ const make_projects = (projects) => {
 // function to make education in resume
 const make_education = (education) => {
     const resume_education_container = document.querySelector('#education_section ul');
+    resume_education_container.innerHTML = ''
 
     education.forEach((project) => {
         let resume_education = document.createElement('li');
@@ -100,8 +106,11 @@ const make_resume = (name, role, contact, email, url, address, skill, project, e
     const resume_address = document.getElementById("address");
     const resume_description = document.getElementById("description_text");
 
+    resume_name.innerText = '';
     resume_name.innerText = name;
+    resume_label.innerText = '';
     resume_label.innerText = role;
+    resume_contact.innerText = '';
     resume_contact.innerText = contact;
     if (url == '') {
         resume_url.parentElement.innerHTML = '';
@@ -176,52 +185,72 @@ const hide_all_sections = () => {
     input_sections.forEach(section => section.classList.remove('active_section'));
 }
 
-// input_image.addEventListener("change", (e) => {
-//     console.log(e.target.files[0]);
-//     let file = e.target.files[0];
-
-//     if (file) {
-//         let reader = new FileReader();
-//         console.log(reader);
-//         reader.onload = (e) => {
-//             console.log(e.target.result)
-//             const resume_image = document.querySelector("#profile_image img");
-//             resume_image.src = e.target.result;
-//         }
-//         reader.readAsDataURL(file);
-//     }
-// })
-
-// for setting profile image
-input_image.addEventListener("change", (e) => {
-    const file = e.target.files[0];
-
+input_image.addEventListener("change", (event) => {
+    const inputted_image_container = document.getElementById('inputted_image_container')
+    inputted_image_container.style.display = 'block';
+    // Listen for the file input change event
+    const file = event.target.files[0];
     if (file) {
-        // Check if the file is an image
-        const validImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
-        if (!validImageTypes.includes(file.type)) {
-            alert("Please upload a valid image file (JPEG, PNG, GIF).");
-            return;
-        }
+        const imageUrl = URL.createObjectURL(file);
+        const imageElement = document.querySelector('#inputted_image img');
+        imageElement.src = imageUrl;
+        imageElement.style.display = 'block';  // Show the image for cropping
 
-        // Check file size (e.g., limit to 5MB)
-        const maxSizeInBytes = 5 * 1024 * 1024; // 5MB
-        if (file.size > maxSizeInBytes) {
-            alert("The file size exceeds the limit of 2MB.");
-            return;
-        }
-
-        // Use FileReader to read and display the image
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            const resume_image = document.querySelector("#profile_image img");
-            resume_image.src = e.target.result;
-        }
-        reader.readAsDataURL(file);
-    } else {
-        alert("No file selected. Please select an image file.");
+        // Initialize the cropper after the image is loaded
+        cropper = new Cropper(imageElement, {
+            aspectRatio: 1,
+            viewMode: 2, // For restricting image to container size
+            autoCropArea: 0.5,
+            responsive: true
+        });
     }
 });
+
+// When the crop button is clicked, get the cropped image and display it
+document.getElementById('crop_btn').addEventListener('click', function (e) {
+    e.preventDefault()
+    const inputted_image_container = document.getElementById('inputted_image_container')
+    inputted_image_container.style.display = 'none';
+    const profile_image_container = document.getElementById('profile_image');
+    if (cropper) {
+        // Get the cropped image data (base64 format)
+        const croppedCanvas = cropper.getCroppedCanvas();
+        const croppedImageUrl = croppedCanvas.toDataURL();
+
+        // Display the cropped image in the #croppedImage element
+        const croppedImageElement = document.createElement('img');
+        croppedImageElement.src = croppedImageUrl;
+        profile_image_container.innerHTML = ''; // Clear previous
+        profile_image_container.appendChild(croppedImageElement);
+    }
+});
+
+// setting desing 
+const set_design = (id) => {
+    const exiting = document.getElementById('resume_design');
+    if (exiting) {
+        exiting.parentNode.removeChild(exiting);
+    }
+
+    const new_css = document.createElement('link');
+    new_css.id = 'resume_design';
+    new_css.href = `css/${id}.css`;
+    new_css.rel = "stylesheet";
+
+    document.head.appendChild(new_css);
+}
+
+
+// getting template design
+designs.forEach((design) => {
+    design.addEventListener('click', () => {
+        designs.forEach(element => element.classList.remove('selected_design'));
+        design.classList.add('selected_design');
+        const design_id = design.getAttribute('id');
+        console.log(design_id)
+        set_design(design_id)
+    })
+})
 
 
 next_btn.addEventListener("click", () => {
@@ -313,25 +342,25 @@ add_project_btn.addEventListener('click', (e) => {
 
 
 submit_btn.addEventListener("click", () => {
-    // let validity = check_validity();
-    // if (validity) {
-    const name = document.getElementById('input_name').value;
-    const role = document.getElementById('input_role').value;
-    const contact = document.getElementById('input_contact').value;
-    const email = document.getElementById('input_email').value;
-    const address = document.getElementById('input_address').value;
-    const url = document.getElementById('input_url').value;
-    const description = document.getElementById('input_description').value;
-    const skills = document.querySelectorAll('.inputted_skill');
-    const projects = document.querySelectorAll('.inputted_projects');
-    const education = document.querySelectorAll('.inputted_education');
+    let validity = check_validity();
+    if (validity) {
+        const name = document.getElementById('input_name').value;
+        const role = document.getElementById('input_role').value;
+        const contact = document.getElementById('input_contact').value;
+        const email = document.getElementById('input_email').value;
+        const address = document.getElementById('input_address').value;
+        const url = document.getElementById('input_url').value;
+        const description = document.getElementById('input_description').value;
+        const skills = document.querySelectorAll('.inputted_skill');
+        const projects = document.querySelectorAll('.inputted_projects');
+        const education = document.querySelectorAll('.inputted_education');
 
-    make_resume(name, role, contact, email, url, address, skills, projects, education, description)
-    input_wrapper.style.display = 'none';
-    resume_wrapper.style.display = 'block';
-    // } else if (!validity) {
-    //     alert("All mendetory fields must be filled. \nPlease check all fields.");
-    // }
+        make_resume(name, role, contact, email, url, address, skills, projects, education, description)
+        input_wrapper.style.display = 'none';
+        resume_wrapper.style.display = 'block';
+    } else if (!validity) {
+        alert("All mendetory fields must be filled. \nPlease check all fields.");
+    }
 })
 
 new_btn.addEventListener('click', () => {

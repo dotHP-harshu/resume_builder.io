@@ -1,0 +1,140 @@
+.section {
+    padding: 2em 1em;
+    min-height: 200px;
+    width: 45%;
+}
+
+.section ul {
+    padding-left: 3em;
+    margin-top: 1em;
+
+}
+
+.icon {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 0;
+    right: 100%;
+}
+
+.section_item {
+    font-family: Inconsolata;
+    font-size: 15px;
+    line-height: 20px;
+    margin-bottom: 5px;
+    list-style: none;
+    position: relative;
+    padding-left: 1em;
+}
+
+.link {
+    text-decoration: underline;
+}
+
+
+.section_heading {
+    font-family: lato;
+    font-size: 22px;
+    font-weight: 900;
+    text-transform: capitalize;
+}
+
+
+#resume {
+    width: 210mm;
+    height: 297mm;
+    max-width: 210mm;
+    max-height: 297mm;
+    padding: 2em;
+    position: relative;
+    background-color: #fff;
+    text-transform: capitalize;
+}
+
+#left,
+#right {
+    width: 100%;
+}
+
+#right {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+#left_bg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    color: #fff;
+    display: none;
+}
+
+#profile_section {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+}
+
+.profile_1_bg {
+    display: none;
+}
+
+#name {
+    font-family: "Jersey 25";
+    font-weight: 100;
+    font-size: 25px;
+    letter-spacing: 1px;
+    z-index: 20;
+    position: relative;
+}
+
+#label {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 100;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    position: relative;
+    z-index: 20;
+}
+
+
+#profile_image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: white;
+    overflow: hidden;
+    z-index: 12;
+}
+
+#profile_image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+#description_text {
+    margin-top: 1em;
+}
+
+#resume_footer {
+    position: absolute;
+    top: 2em;
+    left: 2em;
+    width: calc(100% - 4em);
+    overflow: hidden;
+    height: 220px;
+    transform: rotate(180deg);
+}
+
+#resume_footer svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}

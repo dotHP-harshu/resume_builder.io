@@ -8,33 +8,45 @@
     justify-content: space-between;
     position: relative;
     background-color: #fff;
-
+    text-transform: capitalize;
 }
 
 #left,
 #right {
-    width: 50%;
+    width: 60%;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
 }
 
 #left {
-    width: 45%;
+    width: 40%;
+    position: relative;
+}
+
+#left_bg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    color: #fff;
 }
 
 #profile_section {
-    background: linear-gradient(#e3f8ff, var(--secondary-color));
     width: 100%;
     border-radius: 10px;
-    padding: 4em 0;
+    padding: 2em 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 6em;
-    color: white;
+    gap: 4em;
     margin-bottom: 3em;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile_1_bg {
+    display: none;
 }
 
 #name {
@@ -42,6 +54,7 @@
     font-weight: 100;
     font-size: 25px;
     letter-spacing: 1px;
+    color: #fff;
 }
 
 #label {
@@ -49,17 +62,17 @@
     font-weight: 100;
     letter-spacing: 1px;
     margin-top: 10px;
-
+    color: #fff;
 }
 
 
 #profile_image {
-    width: 250px;
-    height: 250px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     background-color: white;
     overflow: hidden;
-    /* background: url('../assets/icons/contact.svg') no-repeat center center /cover; */
+    z-index: 12;
 }
 
 #profile_image img {
@@ -68,6 +81,8 @@
     object-fit: cover;
     object-position: center;
 }
+
+
 
 #description_text {
     margin-top: 1em;
@@ -80,6 +95,7 @@
     width: 100%;
     overflow: hidden;
     height: 220px;
+    display: none;
 }
 
 #resume_footer svg {
@@ -90,7 +106,6 @@
 
 .section {
     padding: 2em 1em;
-    width: 100%;
     min-height: 200px;
 }
 
@@ -128,4 +143,10 @@
     font-size: 22px;
     font-weight: 900;
     text-transform: capitalize;
+}
+
+#personal_section,
+#personal_section .section_heading {
+    position: relative;
+    color: white;
 }

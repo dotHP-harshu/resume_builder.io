@@ -6,11 +6,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Builder | Harsh Prajapati</title>
-    <link rel="stylesheet" href="css/resume.css">
+    <link rel="stylesheet" id="resume_design" href="css/resume_1.css">
     <link rel="shortcut icon" href="assets/icons/favicon.svg" type="x-image/icon">
     <link rel="stylesheet" href="css/form.css">
     <link rel="stylesheet" href="css/preloader.css">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://unpkg.com/cropperjs/dist/cropper.css" rel="stylesheet">
+
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,6 +41,7 @@
             </div>
         </div>
     </div>
+    <!-- header  -->
     <header>
         <div class="logo">
             <svg xmlns="http://www.w3.org/2000/svg" class="logo-icon" width="24" height="24" viewBox="0 0 24 24"
@@ -50,10 +53,26 @@
             <span class="logo-text">DotHP</span>
         </div>
     </header>
+    <!-- header  -->
     <div id="input_wrapper">
         <form id="input_section_container">
+            <div id="design_input_section" class="input_section active_section">
+                <h3 class="section_heading">Select a design</h3>
+                <div id="design_container">
+                    <img class=" designs selected_design" src="assets/images/resume_1.png" alt="resume_1" id="resume_1">
+                    <img class="designs" src="assets/images/resume_2.png" alt="resume_2" id="resume_2">
+                    <img class="designs" src="assets/images/resume_3.png" alt="resume_3" id="resume_3">
+                </div>
+            </div>
             <!-- profile_input_section -->
-            <div id="profile_input_section" class="active_section input_section">
+            <div id="profile_input_section" class=" input_section">
+                <div id="inputted_image_container">
+                    <div id="inputted_image">
+                        <img src="">
+                    </div>
+                    <button id="crop_btn" class="main_btn">Crop</button>
+
+                </div>
                 <h3 class="section_heading">profile</h3>
                 <label for="input_image" class="input_label">Your profile image *</label>
                 <input required type="file" id="input_image" class="input_box" accept="image/"><br>
@@ -164,8 +183,10 @@
         <div id="resume">
             <!-- -- left section -- -->
             <div id="left">
+                <img src="assets/icons/left.svg" alt="" id="left_bg">
                 <!-- profile_section -->
                 <div id="profile_section" class="section">
+                    <img src="assets/icons/profile_1_bg.svg" alt="profile_1_bg" class="profile_1_bg">
                     <div id="profile_image">
                         <img src="assets/icons/contact.svg" alt="Profile image">
                     </div>
@@ -227,7 +248,7 @@
                 </div>
                 <!-- project_section -->
                 <!-- description_section -->
-                <div id="description">
+                <div id="description" class="section">
                     <h3 class="section_heading">description</h3>
                     <p id="description_text" class="section_item">
                         <!-- Description will be here. -->
@@ -256,6 +277,8 @@
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://unpkg.com/cropperjs"></script>
+
     <script>
 
         document.getElementById("download_btn").addEventListener("click", () => {
@@ -268,3 +291,7 @@
 </body>
 
 </html>
+<!-- 
+Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam, blanditiis voluptatibus. Velit reiciendis nihil
+laboriosam excepturi iure, voluptate mollitia tempore fugit. Nobis consequatur cumque voluptatem doloremque sed porro
+dolorum blanditiis! -->
